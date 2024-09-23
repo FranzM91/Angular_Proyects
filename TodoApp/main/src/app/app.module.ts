@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
 import { StyleClassModule } from 'primeng/styleclass';
 import { AppComponent } from './app.component';
 
@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
     imports: [
         BrowserModule,
         FormsModule,
-        AppRoutingModule,
+        // AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
         StyleClassModule,
