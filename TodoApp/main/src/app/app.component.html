@@ -1,2 +1,29 @@
 <!-- <router-outlet></router-outlet> -->
-<h1> Error 404 Not found</h1>
+<h1> Hola Mundo</h1>
+
+<input [value]="firstName" [disabled]="disableBtn">
+<br>
+<button (click)="eventoClick()">Btn Click</button>
+<br>
+<input type="radio" name="radio" [(ngModel)]="disableBtn" value="1">
+<input type="radio" name="radio" [(ngModel)]="disableBtn" value="0">
+<p>Hoy es {{dia}}-{{year}}</p>
+<br>
+<div *ngIf="year <= 2024">
+    <p>El año es menor o igual a 2024</p>
+</div>
+
+<p>{{dia | lowercase}}</p>
+<p>{{firstName | uppercase}}</p>
+<br>
+<input id="second" [(ngModel)]="firstName">
+<br>
+<li *ngFor="let item of data">
+    {{item}}
+</li>
+
+<div *ngFor="let item of data">
+    <div *ngIf="item == 200 || item == 400">
+        {{item | currency}}
+    </div>
+</div>

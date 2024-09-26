@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
         BrowserModule,
         FormsModule,
         // AppRoutingModule,
-        HttpClientModule,
+        // HttpClientModule,
         BrowserAnimationsModule,
         StyleClassModule,
         // import Module from PrimeNG
