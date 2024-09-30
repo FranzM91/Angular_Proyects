@@ -1,7 +1,7 @@
 <!-- <router-outlet></router-outlet> -->
 <h1> Hola Mundo</h1>
 
-<input [value]="firstName" [disabled]="disableBtn">
+<!-- <input [value]="firstName" [disabled]="disableBtn">
 <br>
 <button p-button (click)="eventoClick()">Btn Click</button>
 <br>
@@ -24,4 +24,46 @@
     <div *ngIf="item == 200 || item == 400">
         {{item | currency}}
     </div>
+</div>
+
+<p-button label="Btn Save"/>
+<button 
+    pButton 
+    pRipple 
+    label="Guardar" 
+    class="p-button-success"
+    icon="pi pi-cloud-upload">
+</button> -->
+
+
+<div class="grid">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <div class="col-12">
+            <label for="nombre">Nombre</label>
+            <br>
+            <input type="text" pInputText [(ngModel)]="nombre" />
+        </div>
+        <div class="col-12">
+            <label for="apellido">Apellido</label>
+            <br>
+            <input type="text" pInputText [(ngModel)]="apellido" />
+        </div>
+        <div class="col-12">
+            <label for="fecha">Fecha de Nacimiento</label>
+            <br>
+            <p-calendar [(ngModel)]="fechaNacimiento" />
+        </div>
+        <div class="col-12">
+            <button 
+                pButton 
+                pRipple 
+                label="Guardar" 
+                class="p-button-success"
+                icon="pi pi-cloud-upload"
+                (click)="btnSave()">
+            </button>
+        </div>
+    </div>
+    <div class="col-3"></div>
 </div>

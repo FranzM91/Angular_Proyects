@@ -12,3 +12,10 @@
 
 # version Angular
 > ng version
+
+## Paso 1
+# instalar dependencias
+> npm i
+
+## paso 2
+> ng s --o

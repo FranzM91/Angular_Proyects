@@ -13,6 +13,8 @@ import { NodeService } from './demo/service/node.service';
 import { PhotoService } from './demo/service/photo.service';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
     declarations: [
@@ -26,7 +28,9 @@ import { ButtonModule } from 'primeng/button';
         CommonModule,
         AppLayoutModule,
         // import Module from PrimeNG
-        ButtonModule
+        ButtonModule,
+        InputTextModule,
+        CalendarModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },
