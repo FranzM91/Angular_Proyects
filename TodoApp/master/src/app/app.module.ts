@@ -15,15 +15,18 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
+import { AppRoutingModule } from './app-routing.module';
+import { FormularioComponent } from './demo/components/formulario/formulariocomponent/formulario.component';
 
 @NgModule({
     declarations: [
         AppComponent, 
         // NotfoundComponent,
         // declare my components
+        FormularioComponent
     ],
     imports: [
-        // AppRoutingModule, 
+        AppRoutingModule, 
         FormsModule,
         CommonModule,
         AppLayoutModule,
