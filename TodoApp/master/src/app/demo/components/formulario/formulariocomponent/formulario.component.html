@@ -4,17 +4,17 @@
         <div class="col-12">
             <label for="nombre">Nombre</label>
             <br>
-            <input type="text" pInputText [(ngModel)]="nombre" />
+            <input type="text" pInputText [(ngModel)]="selectEntity.nombre" />
         </div>
         <div class="col-12">
             <label for="apellido">Apellido</label>
             <br>
-            <input type="text" pInputText [(ngModel)]="apellido" />
+            <input type="text" pInputText [(ngModel)]="selectEntity.apellido" />
         </div>
         <div class="col-12">
             <label for="fecha">Fecha de Nacimiento</label>
             <br>
-            <p-calendar [(ngModel)]="fechaNacimiento" />
+            <p-calendar [(ngModel)]="selectEntity.fechaNacimiento" />
         </div>
         <div class="col-12">
             <button 
@@ -24,6 +24,16 @@
                 class="p-button-success"
                 icon="pi pi-cloud-upload"
                 (click)="btnSave()">
+            </button>
+        </div>
+        <div class="col-12">
+            <button 
+                pButton 
+                pRipple 
+                label="Cancelar" 
+                class="p-button-warning"
+                icon="pi pi-trash"
+                (click)="btnCancel()">
             </button>
         </div>
     </div>
