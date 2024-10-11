@@ -17,6 +17,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CalendarModule } from 'primeng/calendar';
 import { AppRoutingModule } from './app-routing.module';
 import { FormularioComponent } from './demo/components/formulario/formulariocomponent/formulario.component';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,8 @@ import { FormularioComponent } from './demo/components/formulario/formulariocomp
         // import Module from PrimeNG
         ButtonModule,
         InputTextModule,
-        CalendarModule
+        CalendarModule,
+        TableModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },
