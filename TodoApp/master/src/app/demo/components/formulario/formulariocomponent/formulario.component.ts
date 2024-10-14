@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { ProductService } from "src/app/demo/service/product.service";
 import { Usuario } from "../shared/usuario.model";
 
 @Component({
@@ -12,16 +11,12 @@ export class FormularioComponent {
     selectEntity: Usuario;
     dataSource: Usuario[] = [];
     index = null;
-    constructor(public http: ProductService) {
+    constructor() {
         this.reset();
     }
     reset() {
         this.index = null;
         this.selectEntity = new Usuario();
-        this.http.HttpPost({'email': 'salo@mail.com', 'password': 'salo'}, '/appuser/login').subscribe(
-            response => console.log(response),
-            error => console.log(`ERROR::: ${error}`)
-        );
     }
     btnSave() {
         // var data = "Nombre:" + this.nombre + "||  Apellido:" + this.apellido;
@@ -49,4 +44,9 @@ export class FormularioComponent {
         this.reset();
         alert('Se elimino Correctament!');
     }
+
+    // this.http.HttpPost({'email': 'salo@mail.com', 'password': 'salo'}, '/appuser/login').subscribe(
+    //     response => console.log(response),
+    //     error => console.log(`ERROR::: ${error}`)
+    // );
 }

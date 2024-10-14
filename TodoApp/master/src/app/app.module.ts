@@ -18,8 +18,6 @@ import { CalendarModule } from 'primeng/calendar';
 import { AppRoutingModule } from './app-routing.module';
 import { FormularioComponent } from './demo/components/formulario/formulariocomponent/formulario.component';
 import { TableModule } from 'primeng/table';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
     declarations: [
@@ -33,8 +31,8 @@ import { BrowserModule } from '@angular/platform-browser';
         FormsModule,
         CommonModule,
         AppLayoutModule,
-        BrowserModule,
-        HttpClientModule,
+        // BrowserModule,
+        // HttpClientModule,
         // import Module from PrimeNG
         ButtonModule,
         InputTextModule,

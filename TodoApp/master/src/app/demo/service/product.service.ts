@@ -48,7 +48,7 @@ export class ProductService {
             })
         };
 
-        return this.http.post<any>(this.apiUrl, body, httpOptions)
+        return this.http.post<any>(`${this.apiUrl}${url}`, body, httpOptions)
             .pipe(
                 catchError(this.handleError)
             );
