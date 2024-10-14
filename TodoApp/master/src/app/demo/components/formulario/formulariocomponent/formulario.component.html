@@ -1,76 +1,125 @@
 <div class="grid">
-    <div class="col-3"></div>
-    <div class="col-6">
-        <div class="col-12">
-            <label for="nombre">Nombre</label>
-            <br>
-            <input type="text" pInputText [(ngModel)]="selectEntity.nombre" />
-        </div>
-        <div class="col-12">
-            <label for="apellido">Apellido</label>
-            <br>
-            <input type="text" pInputText [(ngModel)]="selectEntity.apellido" />
-        </div>
-        <div class="col-12">
-            <label for="fecha">Fecha de Nacimiento</label>
-            <br>
-            <p-calendar [(ngModel)]="selectEntity.fechaNacimiento" />
-        </div>
-        <div class="col-12">
-            <button 
-                pButton 
-                pRipple 
-                label="Guardar" 
-                class="p-button-success"
-                icon="pi pi-cloud-upload"
-                (click)="btnSave()">
-            </button>
-        </div>
-        <div class="col-12">
-            <button 
-                pButton 
-                pRipple 
-                label="Cancelar" 
-                class="p-button-warning"
-                icon="pi pi-trash"
-                (click)="btnCancel()">
-            </button>
+    <div class="col-8">
+        <p-table [value]="dataSource" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Genero</th>
+                    <th>Fecha</th>
+                    <th>Opciones</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                <tr>
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.apellido }}</td>
+                    <td>{{ item.sexo.nombre }}</td>
+                    <td>{{ item.fechaNacimiento | date }}</td>
+                    <td> 
+                        <button 
+                            pButton 
+                            pRipple
+                            class="p-button-success"
+                            icon="pi pi-pencil"
+                            (click)="btnEditar(item)">
+                        </button>
+                        &nbsp;
+                        <button 
+                            pButton 
+                            pRipple
+                            class="p-button-warning"
+                            icon="pi pi-trash"
+                            (click)="btnEliminar(item)">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="col-4">
+        <div class="grid">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="col-12">
+                    <label for="nombre">Nombre</label>
+                    <br>
+                    <input type="text" pInputText [(ngModel)]="selectEntity.nombre" />
+                </div>
+                <div class="col-12">
+                    <label for="apellido">Apellido</label>
+                    <br>
+                    <input type="text" pInputText [(ngModel)]="selectEntity.apellido" />
+                </div>
+                <div class="col-12">
+                    <label for="fecha">Fecha de Nacimiento</label>
+                    <br>
+                    <p-calendar [(ngModel)]="selectEntity.fechaNacimiento" />
+                </div>
+                <div class="col-12">
+                    <p-dropdown 
+                        [options]="optionGenero" 
+                        [(ngModel)]="selectEntity.sexo" 
+                        optionLabel="nombre" 
+                        placeholder="Select a gender" />
+                </div>
+                <div class="col-12">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="flex align-items-center">
+                            <p-radioButton 
+                                name="genero" 
+                                value='true' 
+                                [(ngModel)]="selectEntity.killed" 
+                                inputId="ingredient1" />
+                            <label for="ingredient1" class="ml-2">
+                                Masculino
+                            </label>
+                        </div>
+                        
+                        <div class="flex align-items-center">
+                            <p-radioButton 
+                                name="genero" 
+                                value='false' 
+                                [(ngModel)]="selectEntity.killed" 
+                                inputId="ingredient2" />
+                            <label for="ingredient2" class="ml-2">
+                                Femenino
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button 
+                        pButton 
+                        pRipple 
+                        label="Guardar" 
+                        class="p-button-success"
+                        icon="pi pi-cloud-upload"
+                        (click)="btnSave()">
+                    </button>
+                </div>
+                <div class="col-12">
+                    <button 
+                        pButton 
+                        pRipple 
+                        label="Cancelar" 
+                        class="p-button-warning"
+                        icon="pi pi-trash"
+                        (click)="btnCancel()">
+                    </button>
+                </div>
+                <div class="col-12">
+                    <button 
+                        pButton 
+                        pRipple 
+                        label="POST" 
+                        class="p-button-alert"
+                        icon="pi pi-cloud"
+                        (click)="login()">
+                    </button>
+                </div>
+            </div>
+            <div class="col-3"></div>
         </div>
     </div>
-    <div class="col-3"></div>
 </div>
-
-<p-table [value]="dataSource" [tableStyle]="{ 'min-width': '50rem' }">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Fecha</th>
-            <th>Opciones</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-item>
-        <tr>
-            <td>{{ item.nombre }}</td>
-            <td>{{ item.apellido }}</td>
-            <td>{{ item.fechaNacimiento | date }}</td>
-            <td> 
-                <button 
-                    pButton 
-                    pRipple
-                    class="p-button-success"
-                    icon="pi pi-pencil"
-                    (click)="btnEditar(item)">
-                </button>
-                &nbsp;
-                <button 
-                    pButton 
-                    pRipple
-                    class="p-button-warning"
-                    icon="pi pi-trash"
-                    (click)="btnEliminar(item)">
-                </button>
-            </td>
-        </tr>
-    </ng-template>
-</p-table>

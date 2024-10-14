@@ -18,6 +18,10 @@ import { CalendarModule } from 'primeng/calendar';
 import { AppRoutingModule } from './app-routing.module';
 import { FormularioComponent } from './demo/components/formulario/formulariocomponent/formulario.component';
 import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -31,13 +35,15 @@ import { TableModule } from 'primeng/table';
         FormsModule,
         CommonModule,
         AppLayoutModule,
-        // BrowserModule,
-        // HttpClientModule,
+        BrowserModule,
+        HttpClientModule,
         // import Module from PrimeNG
         ButtonModule,
         InputTextModule,
         CalendarModule,
-        TableModule
+        TableModule,
+        DropdownModule,
+        RadioButtonModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },

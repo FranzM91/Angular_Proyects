@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { Usuario } from "../shared/usuario.model";
+import { Genero, Usuario } from "../shared/usuario.model";
+import { ProductService } from "src/app/demo/service/product.service";
 
 @Component({
     templateUrl: './formulario.component.html'
@@ -11,12 +12,26 @@ export class FormularioComponent {
     selectEntity: Usuario;
     dataSource: Usuario[] = [];
     index = null;
-    constructor() {
+    optionGenero: Genero[] = [];
+    constructor(public http: ProductService) {
         this.reset();
+        this.optionGenero = [
+            {nombre: 'Masculino', id: 1}, 
+            {nombre: 'Femenino', id: 2}
+        ];
+    }
+    login() {
+        this.http.HttpPost({'email': 'salo@mail.com', 'password': 'salo'}, '/appuser/login')
+        .subscribe(
+            response => console.log(response),
+            error => console.log(`ERROR::: ${error}`)
+        );
     }
     reset() {
         this.index = null;
         this.selectEntity = new Usuario();
+        this.selectEntity.killed = false;
+        this.selectEntity.sexo = {id: 1, nombre: 'Masculino'};
     }
     btnSave() {
         // var data = "Nombre:" + this.nombre + "||  Apellido:" + this.apellido;
