@@ -12,12 +12,16 @@ export class FormularioComponent {
     selectEntity: Usuario;
     dataSource: Usuario[] = [];
     index = null;
-    constructor() {
+    constructor(public http: ProductService) {
         this.reset();
     }
     reset() {
         this.index = null;
         this.selectEntity = new Usuario();
+        this.http.HttpPost({'email': 'salo@mail.com', 'password': 'salo'}, '/appuser/login').subscribe(
+            response => console.log(response),
+            error => console.log(`ERROR::: ${error}`)
+        );
     }
     btnSave() {
         // var data = "Nombre:" + this.nombre + "||  Apellido:" + this.apellido;

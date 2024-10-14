@@ -1,11 +1,13 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { Product } from '../api/product';
 
 @Injectable()
 export class ProductService {
+
+    private apiUrl = 'https://stslab.qhanati.com/websda/api';
 
     constructor(private http: HttpClient) { }
 
@@ -37,35 +39,23 @@ export class ProductService {
             .then(data => data);
     }
 
-    private httpOptions = {
-        headers: new HttpHeaders()
-        // .append('Content-Type', 'application/json')
-    };
-    public httpPost(param: any, url: string): Observable<any> {
-        // let body = JSON.stringify(param);
-        const body = new HttpParams({ fromObject: param });
-        return this.http.post(`${url}`, body, this.httpOptions).pipe(
-            // tap(res => { return res; }),
-            catchError(err => { return this.internalThrowError(err); })
-        );
+    HttpPost(data: any, url: string): Observable<any> {
+        let body = JSON.stringify(data);
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+            })
+        };
+
+        return this.http.post<any>(this.apiUrl, body, httpOptions)
+            .pipe(
+                catchError(this.handleError)
+            );
     }
-    private internalThrowError(err) {
-        let resultErr = null;
-        switch (err.status) {
-            case 0:
-                resultErr = `Error de conexión. Verifica tu conexión a internet y que el servidor esté disponible.`;
-            break;
-            case 412:
-                resultErr = `Ops error ${err.status}`;
-                err.error.forEach(element => {
-                resultErr +=` | ${element.msg}`;
-                });
-            break;
-            default:
-                resultErr = `Ops error ${err.status} | ${err.error}`;
-            break;
-        }
-        console.error(`REST API ERROR:: ${resultErr}`, err);
-        return throwError(() => new Error(resultErr));
+
+    private handleError(error: any) {
+        console.error('An error occurred', error);
+        return throwError(() => error.message || 'Server error');
     }
 }
