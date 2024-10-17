@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { StyleClassModule } from 'primeng/styleclass';
 import { AppComponent } from './app.component';
 import { MenuModule } from 'primeng/menu';
@@ -14,8 +14,8 @@ import { InputTextModule } from 'primeng/inputtext';
     imports: [
         BrowserModule,
         FormsModule,
-        // AppRoutingModule,
-        // HttpClientModule,
+        AppRoutingModule,
+        HttpClientModule,
         BrowserAnimationsModule,
         StyleClassModule,
         // import Module from PrimeNG
