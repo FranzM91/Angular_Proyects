@@ -21,7 +21,7 @@ export class FormularioComponent {
         ];
     }
     login() {
-        this.http.HttpPost({'email': 'salo@mail.com', 'password': 'salo'}, '/appuser/login')
+        this.http.HttpPost(null, '/usuario/getAll')
         .subscribe(
             response => console.log(response),
             error => console.log(`ERROR::: ${error}`)

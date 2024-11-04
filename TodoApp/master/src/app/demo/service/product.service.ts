@@ -7,7 +7,7 @@ import { Product } from '../api/product';
 @Injectable()
 export class ProductService {
 
-    private apiUrl = 'https://stslab.qhanati.com/websda/api';
+    private apiUrl = 'http://localhost:54260/api';
 
     constructor(private http: HttpClient) { }
 
