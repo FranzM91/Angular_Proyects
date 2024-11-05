@@ -12,10 +12,14 @@
             </ng-template>
             <ng-template pTemplate="body" let-item>
                 <tr>
-                    <td>{{ item.nombre }}</td>
-                    <td>{{ item.apellido }}</td>
-                    <td>{{ item.sexo.nombre }}</td>
-                    <td>{{ item.fechaNacimiento | date }}</td>
+                    <td>{{ item.Nombre }}</td>
+                    <td>{{ item.Apellido }}</td>
+                    <td>
+                        <!-- {{ item.Sexo }} -->
+                        <span *ngIf="item.Sexo == 0">Masculino</span>
+                        <span *ngIf="item.Sexo == 1">Femenino</span>
+                    </td>
+                    <td>{{ item.FechaNacimiento | date }}</td>
                     <td> 
                         <button 
                             pButton 

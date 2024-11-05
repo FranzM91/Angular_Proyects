@@ -23,7 +23,8 @@ export class FormularioComponent {
     login() {
         this.http.HttpPost(null, '/usuario/getAll')
         .subscribe(
-            response => console.log(response),
+            // response => console.log(response),
+            response => this.dataSource = response,
             error => console.log(`ERROR::: ${error}`)
         );
     }
