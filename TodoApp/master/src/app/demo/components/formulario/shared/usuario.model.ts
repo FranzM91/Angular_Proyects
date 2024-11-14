@@ -1,10 +1,10 @@
 export class Usuario {
-    id: number;
-    nombre: string;
-    apellido: string;
-    fechaNacimiento: Date;
-    sexo: Genero;
-    killed: boolean;
+    Id: number;
+    Nombre: string;
+    Apellido: string;
+    FechaNacimiento: Date;
+    Sexo: Genero;
+    // killed: boolean;
 }
 
 export class Genero {

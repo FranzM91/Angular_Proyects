@@ -16,8 +16,8 @@
                     <td>{{ item.Apellido }}</td>
                     <td>
                         <!-- {{ item.Sexo }} -->
-                        <span *ngIf="item.Sexo == 0">Masculino</span>
-                        <span *ngIf="item.Sexo == 1">Femenino</span>
+                        <span *ngIf="item.Sexo == 1">Masculino</span>
+                        <span *ngIf="item.Sexo == 0">Femenino</span>
                     </td>
                     <td>{{ item.FechaNacimiento | date }}</td>
                     <td> 
@@ -48,26 +48,26 @@
                 <div class="col-12">
                     <label for="nombre">Nombre</label>
                     <br>
-                    <input type="text" pInputText [(ngModel)]="selectEntity.nombre" />
+                    <input type="text" pInputText [(ngModel)]="selectEntity.Nombre" />
                 </div>
                 <div class="col-12">
                     <label for="apellido">Apellido</label>
                     <br>
-                    <input type="text" pInputText [(ngModel)]="selectEntity.apellido" />
+                    <input type="text" pInputText [(ngModel)]="selectEntity.Apellido" />
                 </div>
                 <div class="col-12">
                     <label for="fecha">Fecha de Nacimiento</label>
                     <br>
-                    <p-calendar [(ngModel)]="selectEntity.fechaNacimiento" />
+                    <p-calendar [(ngModel)]="selectEntity.FechaNacimiento" />
                 </div>
                 <div class="col-12">
                     <p-dropdown 
                         [options]="optionGenero" 
-                        [(ngModel)]="selectEntity.sexo" 
+                        [(ngModel)]="selectEntity.Sexo" 
                         optionLabel="nombre" 
                         placeholder="Select a gender" />
                 </div>
-                <div class="col-12">
+                <!-- <div class="col-12">
                     <div class="flex flex-wrap gap-3">
                         <div class="flex align-items-center">
                             <p-radioButton 
@@ -91,7 +91,7 @@
                             </label>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-12">
                     <button 
                         pButton 
