@@ -1,45 +1,50 @@
 <div class="grid">
     <div class="col-8">
-        <p-table [value]="dataSource" [tableStyle]="{ 'min-width': '50rem' }">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Genero</th>
-                    <th>Fecha</th>
-                    <th>Opciones</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-item>
-                <tr>
-                    <td>{{ item.Nombre }}</td>
-                    <td>{{ item.Apellido }}</td>
-                    <td>
-                        <!-- {{ item.Sexo }} -->
-                        <span *ngIf="item.Sexo == 1">Masculino</span>
-                        <span *ngIf="item.Sexo == 0">Femenino</span>
-                    </td>
-                    <td>{{ item.FechaNacimiento | date }}</td>
-                    <td> 
-                        <button 
-                            pButton 
-                            pRipple
-                            class="p-button-success"
-                            icon="pi pi-pencil"
-                            (click)="btnEditar(item)">
-                        </button>
-                        &nbsp;
-                        <button 
-                            pButton 
-                            pRipple
-                            class="p-button-warning"
-                            icon="pi pi-trash"
-                            (click)="btnEliminar(item)">
-                        </button>
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
+        <div class="card flex justify-content-center gap-2">
+            <p-table [value]="dataSource" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Genero</th>
+                        <th>Fecha</th>
+                        <th>Opciones</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item>
+                    <tr>
+                        <td>{{ item.Nombre }}</td>
+                        <td>{{ item.Apellido }}</td>
+                        <td>
+                            <!-- {{ item.Sexo }} -->
+                            <span *ngIf="item.Sexo == 1">Masculino</span>
+                            <span *ngIf="item.Sexo == 0">Femenino</span>
+                        </td>
+                        <td>{{ item.FechaNacimiento | date }}</td>
+                        <td> 
+                            <button 
+                                pButton 
+                                pRipple
+                                class="p-button-success"
+                                icon="pi pi-pencil"
+                                (click)="btnEditar(item)">
+                            </button>
+                            &nbsp;
+                            <button 
+                                pButton 
+                                pRipple
+                                class="p-button-warning"
+                                icon="pi pi-trash"
+                                (click)="btnEliminar(item, $event)">
+                            </button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <p-toast/>
+            <p-confirmDialog />
+            <!-- <p-button (onClick)="confirm2($event)" label="Delete" severity="danger" [outlined]="true" /> -->
+        </div>
     </div>
     <div class="col-4">
         <div class="grid">
@@ -112,7 +117,7 @@
                         (click)="btnCancel()">
                     </button>
                 </div>
-                <div class="col-12">
+                <!-- <div class="col-12">
                     <button 
                         pButton 
                         pRipple 
@@ -121,9 +126,10 @@
                         icon="pi pi-cloud"
                         (click)="login()">
                     </button>
-                </div>
+                </div> -->
             </div>
             <div class="col-3"></div>
         </div>
     </div>
 </div>
+
