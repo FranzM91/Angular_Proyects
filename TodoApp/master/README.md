@@ -19,3 +19,6 @@
 
 ## paso 2
 > ng s --o
+
+## Publicar en servidor
+> ng build --prod --base-href

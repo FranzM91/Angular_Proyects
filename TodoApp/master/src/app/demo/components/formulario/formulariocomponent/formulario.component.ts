@@ -15,6 +15,13 @@ export class FormularioComponent {
     dataSource: Usuario[] = [];
     index = null;
     optionGenero: Genero[] = [];
+
+
+    visible: boolean = false;
+
+    showDialog() {
+        this.visible = true;
+    }
     constructor(public http: ProductService, private confirmationService: ConfirmationService, private messageService: MessageService) {
         this.reset();
         this.optionGenero = [
@@ -47,6 +54,7 @@ export class FormularioComponent {
         // } else {
         //     this.dataSource.splice(this.index, 1, this.selectEntity);
         // }
+        this.visible = false;
         console.log(this.dataSource);
         this.http.HttpPost(this.selectEntity, '/usuario/save').subscribe(
             response => {
@@ -60,9 +68,11 @@ export class FormularioComponent {
         this.reset();
     }
     btnCancel() {
+        this.visible = false
         this.reset();
     }
     btnEditar(item){
+        this.showDialog();
         this.index = this.dataSource.indexOf(item);
         console.warn(`index: ${this.index}`);
         // this.selectEntity = item;

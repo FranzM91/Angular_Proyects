@@ -24,6 +24,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
     declarations: [
@@ -47,7 +48,8 @@ import { ToastModule } from 'primeng/toast';
         DropdownModule,
         RadioButtonModule,
         ConfirmDialogModule,
-        ToastModule
+        ToastModule,
+        DialogModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },
